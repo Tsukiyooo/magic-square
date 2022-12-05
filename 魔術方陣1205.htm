@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>魔術方陣</title>
+<script>
+	
+function go(n) {
+    var c = [];
+    for(var y = 0; y < n; y++) {
+        c.push([]);
+    }
+
+    var y = 0;
+    var x = Math.floor((n + 1) / 2);
+    for(var Ans = 1; Ans < n * n + 1; Ans ++) {
+        if(Ans % n == 1) {
+            y++;
+        }
+        else {
+            y--;
+            x++;
+        }
+        if(y == 0) {
+            y = n;
+        }
+        if (x > n) {
+            x = 1;
+        }
+        c[y - 1][x - 1] = Ans;
+    }        
+    
+    return c
+}
+
+c = go(3)
+console.log(c)
+document.write(c);
+</script>
+</head>
+<body>
+	
+</body>
+</html>
